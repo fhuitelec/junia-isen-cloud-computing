@@ -30,16 +30,20 @@
 > However, make sure you have most of your free 120 included core hours in the [billing area](https://github.com/settings/billing/summary) (search for "Codespaces")
 > If you don't, let @fhuitelec know.
 
-- Go to https://github.com/signup
-- Follow the guide
+- Go to [github.com/signup](https://github.com/signup)
+- Take the guided tour and create your account
 
-## GitHub codespace
+### GitHub codespace
 
 > [!note]
 > Let's create a codespace for this practical session!
 
-- Go to [fhuitelec/junia-isen-cloud-computing](https://github.com/fhuitelec/junia-isen-cloud-computing)
-- Within GitHub interface, click on the **<> Code** button
-- Within the popup that opened, go to the **Codespaces** tab
-- Click on **Create codespace on week-1-start**
-- Follow the guide
+- Go to [fhuitelec/junia-isen-cloud-computing](https://github.com/codespaces/new?hide_repo_select=true&ref=week-1-start&repo=861375313&skip_quickstart=true)
+- Click on **Create codespace**
+- Continue in the Codespace
+
+## Let's go on
+
+Follow the steps for this practical session:
+- step 1: install Terraform & Azure CLIs
+- step 2: manually create a resource group on Azure
