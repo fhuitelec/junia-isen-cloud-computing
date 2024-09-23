@@ -30,3 +30,7 @@
 - Observe the concept of subscription and read on:
   - about [subcriptions](https://learn.microsoft.com/fr-fr/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)
   - about [resource groups](https://learn.microsoft.com/fr-fr/azure/azure-resource-manager/management/manage-resource-groups-portal)
+
+## Next
+
+Go to [step 2](./docs/STEP_2.md).

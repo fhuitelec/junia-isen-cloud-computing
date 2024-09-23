@@ -15,3 +15,7 @@
 > [!note]
 > You're already done and are waiting?
 > Go on and read a [HashiCorp's Intro to Terraform](https://developer.hashicorp.com/terraform/intro)!
+
+## Next
+
+Go to [step 3](./docs/STEP_3.md).

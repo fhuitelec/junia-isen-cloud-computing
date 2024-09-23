@@ -45,5 +45,6 @@
 ## Let's go on
 
 Follow the steps for this practical session:
-- step 1: install Terraform & Azure CLIs
-- step 2: manually create a resource group on Azure
+- [step 1](./docs/STEP_1.md): install Terraform & Azure CLIs
+- [step 2](./docs/STEP_2.md): manually create a resource group on Azure
+- [step 3](./docs/STEP_3.md): import your resource in your Terraform state
