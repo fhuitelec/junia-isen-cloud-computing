@@ -1,5 +1,5 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu22.04",
+  "image": "ghcr.io/fhuitelec/devcontainers-playground:ubuntu22.04",
   "features": {
   }
 }
