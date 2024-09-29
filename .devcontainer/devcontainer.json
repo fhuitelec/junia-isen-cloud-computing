@@ -1,5 +1,21 @@
 {
   "image": "ghcr.io/fhuitelec/devcontainers-playground:ubuntu22.04",
   "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
   }
 }
