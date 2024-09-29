@@ -5,3 +5,4 @@
 | Week | Session                                      | Link              |
 | ---- | -------------------------------------------- | ----------------- |
 | 1    | Infrastructure-as-code discovery             | [link](./week-1/) |
+| 2    | Database, blob storage & HTTP API deployment | [link](./week-2/) |
