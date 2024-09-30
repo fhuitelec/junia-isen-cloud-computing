@@ -50,7 +50,7 @@ Topics to discuss about:
 
 Use the SQLTools extension.
 
-- hostname: `playground-computing.postgres.database.azure.com`
+- hostname: `playground-computing2.postgres.database.azure.com`
 - port: 5432
 - dbname: `postgres`
 - username: `cloudcomputing`
