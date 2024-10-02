@@ -28,10 +28,10 @@ variable "email_address" {
   description = "Your JUNIA email address. Example: firstname.lastname@*.junia.com"
 }
 
-variable "server_hostname_prefix" {
+variable "server_name" {
   type = string
-  nullable = false
-  description = "Prefix used to compose the public hostname of the database server. Example: playground-computing-handlegithub"
+  default = null
+  description = "Name of the database server. Example: playground-computing-handlegithub"
 }
 
 variable "database_username" {
@@ -60,4 +60,9 @@ variable "database_name" {
   type = string
   nullable = false
   description = "Name for the database within the server"
+}
+
+resource "random_string" "server_name_suffix" {
+  length = 4
+  special = false
 }

@@ -19,7 +19,7 @@ module "database" {
   entra_administrator_object_id = data.azuread_user.user.object_id
   entra_administrator_principal_type = "User"
   entra_administrator_principal_name = data.azuread_user.user.user_principal_name
-  server_name = var.server_hostname_prefix
+  server_name = var.server_name != null ? var.server_name : format("playground-computing-%s", random_string.server_name_suffix.result)
   database_administrator_login = var.database_username
   database_administrator_password = var.database_password
   database_name = var.database_name
