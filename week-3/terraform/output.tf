@@ -1,26 +1,26 @@
 output "server_address" {
-  value = azurerm_postgresql_flexible_server.playground_computing.fqdn
+  value = module.database.server_address
   description = "Hostname to connect to the database"
 }
 
 output "port" {
-  value = 5432
+  value = module.database.port
   description = "Port to connect to the database"
 }
 
 output "username" {
-  value = azurerm_postgresql_flexible_server.playground_computing.administrator_login
+  value = var.database_username
   description = "Username to connect to the database"
 }
 
 output "password" {
-  value = azurerm_postgresql_flexible_server.playground_computing.administrator_password
+  value = var.database_password
   description = "Password to connect to the database"
   sensitive = true
 }
 
 output "database" {
-  value = azurerm_postgresql_flexible_server_database.database.name
+  value = var.database_name
   description = "Database name to connect to"
 }
 
