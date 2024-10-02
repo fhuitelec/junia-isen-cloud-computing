@@ -1,3 +1,15 @@
+variable "location" {
+  type = string
+  default = "francecentral"
+  description = "Location of the resources"
+}
+
+variable "resource_group_name" {
+  type = string
+  default = "week-3"
+  description = "Name of the resource group in which all resource are grouped"
+}
+
 variable "subscription_id" {
   type = string
   nullable = false

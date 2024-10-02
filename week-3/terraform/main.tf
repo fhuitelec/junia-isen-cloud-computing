@@ -6,8 +6,8 @@ data "azuread_user" "user" {
 }
 
 resource "azurerm_resource_group" "week_3" {
-  name     = "week-3"
-  location = "francecentral"
+  name     = var.resource_group_name
+  location = var.location
 }
 
 module "database" {
