@@ -8,8 +8,9 @@ resource "azurerm_postgresql_flexible_server" "playground_computing" {
   name                          = var.server_name
   public_network_access_enabled = true
   resource_group_name           = var.resource_group_name
-  sku_name                      = "GP_Standard_D4ds_v5"
-  storage_tier                  = "P10"
+  sku_name                      = "B_Standard_B1ms"
+  storage_tier                  = "P4"
+  storage_mb                    = "32768"
   version                       = "16"
   zone                          = "1"
 
