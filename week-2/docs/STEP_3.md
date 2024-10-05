@@ -1,39 +1,13 @@
-# Step 3: deploy an HTTP API
+# Step 3: deploy an HTTP API locally
 
-## Create the Python FastAPI application
+We are going to explore a small HTTP API that will connect to your database.
 
-Cf. [README.md](https://github.com/fhuitelec/junia-isen-cloud-computing--quotes-api/blob/main/README.md) & [v1.0.0](https://github.com/fhuitelec/junia-isen-cloud-computing--quotes-api/blob/main/v1.0.0/main.py).
+## Run locally
 
-```shell
-# Initialize project
-uv init quotes-api
-mv hello.py main.py
+Go to [examples-api](../examples-api/) and follow the instructions from the [README.md](../examples-api/README.md).
 
-# Install dependencies
-uv add fastapi fastapi-cli
+## A few hints
 
-# Run the app
-uv run fastapi dev main.py
-```
-
-Notes:
-
-- [speak about Python versions](https://devguide.python.org/versions/)
-
-## Update the image in the App Service instance
-
-- In the deployment center
-- Registry: https://ghcr.io
-- Image name & tag: `fhuitelec/quotes-api:1.0.0`
-
-## Debug session
-
-- enable logging (cf. [docs](https://learn.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs#enable-application-logging-linuxcontainer))
-- issues:
-  - port
-    - ⚠️ very long warmup (everything is in the logs)
-    - "azure app service port mapping" & Stack overflow
-    - ChatGPT prompt : "dis-moi comment configurer le port d'une instance Azure App service"
-    - `fhuitelec/quotes-api:1.1.0`
-  - interface
-    - `fhuitelec/quotes-api:1.2.0`
+- within GitHub Codespace or devcontainers, `uv` is already installed, no need to install it again
+- in the exported environment variables, you should use the exact same characteristics than when you connected manually
+- the "host" is interchangeable with "hostname" or "server": it means the PostgreSQL hostname/URL

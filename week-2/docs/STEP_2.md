@@ -1,14 +1,32 @@
-# Step 2: provision an App Service
+# Step 2: manually connect to the database
 
-We are going to use the [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview).
+## Connect through Azure's dashboard
 
-## Click-click creation
+You added yourself in Entra as an admin of this instance so let's connect.
 
-Topics to discuss about:
+Usually, you will never use a cloud provider "connect" feature from their dashboard: it's impractical.
 
-- name: `quotes-api` (`api` is forbidden)
-- present [httpbin](https://httpbin.org/)
-  - Docker Hub: kennethreitz/httpbin
-- students in free plan, @fhuitelec in higher tier for shorter waiting times
-  - try Premium1V3 and show quota issue
-- network exposition
+You generally use this kind of feature as a last resort because you "locked the door" by mistake and cannot access your resource any other way.
+
+- Go to your instance **Overview**
+- On the toolbox at the top, click **Connect** and connect to the `postgres` database
+- The command might fail because of a bug, if so, run the following:
+
+```shell
+TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+psql "host=hello-there.postgres.database.azure.com port=5432 dbname=postgres user=fabien.huitelec@ext.junia.com password=$TOKEN sslmode=require"
+```
+
+Then run the command `\conninfo` to see your identity.
+
+## Connect through SQLTools in Visual Studio Code
+
+On the VSCode sidebar (on the left usually), click the database icon at the bottom and Add a new connection:
+
+- select PostgreSQL
+- server address: the server name (finishing with `database.azure.com`) you noted earlier
+- port: 5432 (default PostgreSQL port)
+- database: postgre
+- user & password you chose and noted earlier
+
+Once connected, in the prompt file, run the content of the file [resources/database/script.sql](../resources/database/script.sql).
