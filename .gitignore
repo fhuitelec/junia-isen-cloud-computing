@@ -38,5 +38,3 @@ override.tf.json
 terraform.rc
 
 sandbox
-
-quotes-api
