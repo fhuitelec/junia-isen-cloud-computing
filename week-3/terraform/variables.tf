@@ -107,6 +107,26 @@ resource "random_password" "database_password" {
 }
 
 
+#############
+# New relic #
+#############
+
+
+variable "new_relic_licence_key" {
+  type        = string
+  sensitive   = true
+  default     = null
+  description = <<EOT
+New relic licence key used by the app service container to publish logs & metrics.
+
+See documentation https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/
+
+To retrieve it, go to https://send.bitwarden.com/#bX2ytcWjUUSvJrIAAXayPA/RVbs3obbFkjeybNQuzrBCw
+The Bitwarden password will be displayed in class.
+EOT
+}
+
+
 ##########
 # Locals #
 ##########

@@ -7,19 +7,20 @@ This terraform stack provisions:
 
 ## Variables
 
-| Variable               | Default                                 | Description                                                       |
-| ---------------------- | --------------------------------------- | ----------------------------------------------------------------- |
-| `location`             | `francecentral`                         | Location of the resources                                         |
-| `resource_group_name`  | `week-3`                                | Name of the resource group in which all resource are grouped      |
-| `enable_database`      | `false`                                 | Whether to deploy the PostgreSQL database or not                  |
-| `enable_api`           | `false`                                 | Whether to deploy the HTTP API or not                             |
-| `github_handle`        |                                         | Your GitHub username                                              |
-| `subscription_id`      |                                         | Your Azure subscription ID                                        |
-| `email_address`        |                                         | Your JUNIA email address. Example: firstname.lastname@*.junia.com |
-| `database_server_name` | `playground-computing-${github_handle}` | Name of the database server                                       |
-| `database_name`        | `${github_handle}`                      | Name for the database within the server                           |
-| `database_username`    | `${github_handle}`                      | Administrator username for the database                           |
-| `database_password`    | Generated password                      | Administrator password for the database                           |
+| Variable                | Default                                 | Description                                                       |
+| ----------------------- | --------------------------------------- | ----------------------------------------------------------------- |
+| `location`              | `francecentral`                         | Location of the resources                                         |
+| `resource_group_name`   | `week-3`                                | Name of the resource group in which all resource are grouped      |
+| `enable_database`       | `false`                                 | Whether to deploy the PostgreSQL database or not                  |
+| `enable_api`            | `false`                                 | Whether to deploy the HTTP API or not                             |
+| `github_handle`         |                                         | Your GitHub username                                              |
+| `subscription_id`       |                                         | Your Azure subscription ID                                        |
+| `email_address`         |                                         | Your JUNIA email address. Example: firstname.lastname@*.junia.com |
+| `database_server_name`  | `playground-computing-${github_handle}` | Name of the database server                                       |
+| `database_name`         | `${github_handle}`                      | Name for the database within the server                           |
+| `database_username`     | `${github_handle}`                      | Administrator username for the database                           |
+| `database_password`     | Generated password                      | Administrator password for the database                           |
+| `new_relic_licence_key` |                                         | Used by the app service container to publish logs & metrics.      |
 
 ## Output
 

@@ -17,26 +17,30 @@ resource "azurerm_resource_group" "week_3" {
 locals {
   resource_group = azurerm_resource_group.week_3.name
   location       = azurerm_resource_group.week_3.location
+  app_name       = "examples-api-${var.github_handle}"
 }
 
 module "examples_api_service" {
   source = "./modules/app_service"
-  count  = var.enable_api? 1 : 0
+  count  = var.enable_api ? 1 : 0
 
   resource_group_name = local.resource_group
   location            = local.location
 
-  app_name            = "examples-api-${var.github_handle}"
+  app_name            = local.app_name
   pricing_plan        = "P0v3"
-  docker_image        = "fhuitelec/examples-api:1.0.0"
+  docker_image        = "fhuitelec/examples-api:1.3.0"
   docker_registry_url = "https://ghcr.io"
 
   app_settings = {
-    DATABASE_HOST     = local.database_connection.host
-    DATABASE_PORT     = local.database_connection.port
-    DATABASE_NAME     = local.database.name
-    DATABASE_USER     = local.database.username
-    DATABASE_PASSWORD = local.database.password
+    DATABASE_HOST         = local.database_connection.host
+    DATABASE_PORT         = local.database_connection.port
+    DATABASE_NAME         = local.database.name
+    DATABASE_USER         = local.database.username
+    DATABASE_PASSWORD     = local.database.password
+
+    NEW_RELIC_LICENSE_KEY = var.new_relic_licence_key
+    NEW_RELIC_APP_NAME    = local.app_name
   }
 }
 

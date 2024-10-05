@@ -8,4 +8,5 @@ dependencies = [
     "fastapi>=0.115.0",
     "fastapi-cli>=0.0.5",
     "psycopg2-binary>=2.9.9",
+    "newrelic>=10.0.0",
 ]

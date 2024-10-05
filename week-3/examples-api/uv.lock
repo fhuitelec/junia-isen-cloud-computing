@@ -55,6 +55,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "fastapi-cli" },
+    { name = "newrelic" },
     { name = "psycopg2-binary" },
 ]
 
@@ -62,6 +63,7 @@ dependencies = [
 requires-dist = [
     { name = "fastapi", specifier = ">=0.115.0" },
     { name = "fastapi-cli", specifier = ">=0.0.5" },
+    { name = "newrelic", specifier = ">=10.0.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.9" },
 ]
 
@@ -144,6 +146,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979 },
+]
+
+[[package]]
+name = "newrelic"
+version = "10.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ea/fa/eb1108ceacb1d3ca404ab8bcf215e6292054f7b2b8bb03877c91ce773487/newrelic-10.0.0.tar.gz", hash = "sha256:548b538c3e95b589a30565bff668285ca74bb64069eb1d6f643bde9768944f53", size = 1166571 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c2/34/71c9820340948e3dd741a7ee890670be0819f90edaab7db9b89f234b68d3/newrelic-10.0.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:002e21527c77c0c9640402c152d40a114b4cc821e7de93cf445fffaef160f1aa", size = 817611 },
+    { url = "https://files.pythonhosted.org/packages/8f/b1/66c52b8767f08e10c101ca17b822885b977d7938a6cb8ceadc441f06aa51/newrelic-10.0.0-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1f4cd5ca11f08badd4b1cdd746053cfb30a09d5d9b9c1f5d911718d2870b4493", size = 817290 },
+    { url = "https://files.pythonhosted.org/packages/8f/f9/d725d0cd52d104cc532e18a3a55f08df68b8ed30809442f2b754c4433f7f/newrelic-10.0.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:27d2f34bf714ef9d7ff8a68265a2094b87a4bdc7b1bbbd0a1421cf5cf8f33311", size = 830244 },
+    { url = "https://files.pythonhosted.org/packages/3f/87/219624534b71eb82dc635aa714e456738b136ee144154508fbf4174c2534/newrelic-10.0.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:f1aac4a5fe1d0cbe2bb9e2c52152604fb872a6bce28e129febd29d1d307df1f4", size = 831540 },
 ]
 
 [[package]]

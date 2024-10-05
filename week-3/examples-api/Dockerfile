@@ -12,4 +12,5 @@ ADD main.py /app/
 
 EXPOSE 80
 
-CMD ["uv", "run", "fastapi", "dev", "main.py", "--host", "0.0.0.0", "--port", "80"]
+ENTRYPOINT ["uv", "run", "newrelic-admin", "run-program"]
+CMD ["fastapi", "dev", "main.py", "--host", "0.0.0.0", "--port", "80"]
