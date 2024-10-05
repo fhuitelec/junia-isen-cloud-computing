@@ -13,6 +13,35 @@ resource "azurerm_resource_group" "week_3" {
 locals {
   resource_group = azurerm_resource_group.week_3.name
   location = azurerm_resource_group.week_3.location
+
+  database = {
+    host = try(module.database[0].server_address, null)
+    port = try(module.database[0].port, null)
+    name = var.database_name
+    user = var.database_username
+    password = var.database_password
+  }
+}
+
+module "examples_api_service" {
+  source = "./modules/app_service"
+  count = 0
+
+  resource_group_name = local.resource_group
+  location = local.location
+
+  app_name = "examples-api-5dfa"
+  pricing_plan = "P0v3"
+  docker_image = "fhuitelec/examples-api:1.0.0"
+  docker_registry_url = "https://ghcr.io"
+
+  app_settings = {
+    DATABASE_HOST = local.database.host
+    DATABASE_PORT = local.database.port
+    DATABASE_NAME = local.database.name
+    DATABASE_USER = local.database.user
+    DATABASE_PASSWORD = local.database.password
+  }
 }
 
 module "database" {
