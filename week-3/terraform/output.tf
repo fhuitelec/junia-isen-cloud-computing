@@ -10,3 +10,10 @@ output "database" {
   sensitive   = true
   description = "Database connection information"
 }
+
+output "api" {
+  value = length(module.examples_api_service) == 0 ? null : {
+    url     = module.examples_api_service[0].url
+  }
+  description = "URL to access the HTTP API"
+}
