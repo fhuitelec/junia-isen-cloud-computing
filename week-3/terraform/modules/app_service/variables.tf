@@ -48,12 +48,3 @@ variable "app_settings" {
   default = {}
   type = map(string)
 }
-
-resource "random_string" "app_name_random" {
-  length  = 4
-  special = false
-}
-
-locals {
-  full_app_name = var.app_name != null ? var.app_name : format("playground-computing-%s", random_string.app_name_random.result)
-}
