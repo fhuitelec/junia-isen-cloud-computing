@@ -1,12 +1,12 @@
 output "database" {
   value = length(module.database) == 0 ? null : {
-    server_address = module.database[0].server_address
-    port = module.database[0].port
-    username = var.database_username
-    password = random_password.database_password
-    database = var.database_name
-    ssl = "enabled"
+    host     = local.database_connection.host
+    port     = local.database_connection.port
+    database = local.database.name
+    username = local.database.username
+    password = local.database.password
+    ssl      = "enabled"
   }
-  sensitive = true
+  sensitive   = true
   description = "Database connection information"
 }

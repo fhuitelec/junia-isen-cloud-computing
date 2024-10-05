@@ -87,3 +87,16 @@ resource "random_password" "database_password" {
   min_lower   = 2
   min_upper   = 2
 }
+
+##########
+# Locals #
+##########
+
+locals {
+  database = {
+    server_name = var.database_server_name != null ? var.database_server_name : "playground-computing-${var.github_handle}"
+    name        = var.database_name != null ? var.database_name : var.github_handle
+    username    = var.database_username != null ? var.database_username : var.github_handle
+    password    = var.database_password != null ? var.database_password : random_password.database_password.result
+  }
+}
