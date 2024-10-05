@@ -11,6 +11,24 @@ variable "resource_group_name" {
 }
 
 
+#########
+# Flags #
+#########
+
+
+variable "enable_database" {
+  type        = bool
+  default     = false
+  description = "Whether to deploy the PostgreSQL database or not"
+}
+
+variable "enable_api" {
+  type        = bool
+  default     = false
+  description = "Whether to deploy the HTTP API or not"
+}
+
+
 ############
 # Identity #
 ############
@@ -88,9 +106,11 @@ resource "random_password" "database_password" {
   min_upper   = 2
 }
 
+
 ##########
 # Locals #
 ##########
+
 
 locals {
   database = {
