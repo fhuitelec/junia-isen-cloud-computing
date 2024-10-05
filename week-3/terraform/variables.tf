@@ -10,6 +10,18 @@ variable "resource_group_name" {
   description = "Name of the resource group in which all resource are grouped"
 }
 
+
+############
+# Identity #
+############
+
+
+variable "github_handle" {
+  type        = string
+  nullable    = false
+  description = "Your GitHub username"
+}
+
 variable "subscription_id" {
   type        = string
   nullable    = false
@@ -28,15 +40,27 @@ variable "email_address" {
   description = "Your JUNIA email address. Example: firstname.lastname@*.junia.com"
 }
 
-variable "server_name" {
+
+############
+# Database #
+############
+
+
+variable "database_server_name" {
   type        = string
   default     = null
   description = "Name of the database server. Example: playground-computing-handlegithub"
 }
 
+variable "database_name" {
+  type        = string
+  default     = null
+  description = "Name for the database within the server"
+}
+
 variable "database_username" {
   type        = string
-  nullable    = false
+  default     = null
   description = "Administrator username for the database"
 }
 
@@ -54,17 +78,6 @@ The password must contain characters from three of the following categories:
 - numbers (0-9)
 - non-alphanumeric characters (!, $, #, %, etc.)
 EOT
-}
-
-variable "database_name" {
-  type        = string
-  nullable    = false
-  description = "Name for the database within the server"
-}
-
-resource "random_string" "server_name_suffix" {
-  length  = 4
-  special = false
 }
 
 resource "random_password" "database_password" {
