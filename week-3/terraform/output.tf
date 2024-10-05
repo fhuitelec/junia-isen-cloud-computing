@@ -1,30 +1,12 @@
-output "server_address" {
-  value = module.database.server_address
-  description = "Hostname to connect to the database"
-}
-
-output "port" {
-  value = module.database.port
-  description = "Port to connect to the database"
-}
-
-output "username" {
-  value = var.database_username
-  description = "Username to connect to the database"
-}
-
-output "password" {
-  value = var.database_password
-  description = "Password to connect to the database"
-  sensitive = true
-}
-
 output "database" {
-  value = var.database_name
-  description = "Database name to connect to"
-}
-
-output "ssl" {
-  value = "enabled"
-  description = "Whether SSL is enabled or not on the server"
+  value = length(module.database) == 0 ? null : {
+    server_address = module.database[0].server_address
+    port = module.database[0].port
+    username = var.database_username
+    password = var.database_password
+    database = var.database_name
+    ssl = "enabled"
+  }
+  sensitive = true
+  description = "Database connection information"
 }

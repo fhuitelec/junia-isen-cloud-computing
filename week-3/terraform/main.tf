@@ -12,6 +12,7 @@ resource "azurerm_resource_group" "week_3" {
 
 module "database" {
   source  = "./modules/database"
+  count = 0
 
   resource_group_name = azurerm_resource_group.week_3.name
   location = azurerm_resource_group.week_3.location
