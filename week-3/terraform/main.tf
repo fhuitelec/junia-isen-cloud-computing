@@ -11,6 +11,7 @@ resource "azurerm_resource_group" "week_3" {
 }
 
 locals {
+  database_password = var.database_password != null ? var.database_password : random_password.database_password.result
   resource_group = azurerm_resource_group.week_3.name
   location = azurerm_resource_group.week_3.location
 
@@ -19,7 +20,7 @@ locals {
     port = try(module.database[0].port, null)
     name = var.database_name
     user = var.database_username
-    password = var.database_password
+    password = local.database_password
   }
 }
 
@@ -58,6 +59,6 @@ module "database" {
 
   server_name = var.server_name != null ? var.server_name : format("playground-computing-%s", random_string.server_name_suffix.result)
   database_administrator_login = var.database_username
-  database_administrator_password = var.database_password
+  database_administrator_password = local.database_password
   database_name = var.database_name
 }

@@ -1,18 +1,18 @@
 variable "location" {
-  type = string
-  default = "francecentral"
+  type        = string
+  default     = "francecentral"
   description = "Location of the resources"
 }
 
 variable "resource_group_name" {
-  type = string
-  default = "week-3"
+  type        = string
+  default     = "week-3"
   description = "Name of the resource group in which all resource are grouped"
 }
 
 variable "subscription_id" {
-  type = string
-  nullable = false
+  type        = string
+  nullable    = false
   description = <<EOT
 Your Azure subscription ID
 
@@ -23,27 +23,27 @@ EOT
 }
 
 variable "email_address" {
-  type = string
-  nullable = false
+  type        = string
+  nullable    = false
   description = "Your JUNIA email address. Example: firstname.lastname@*.junia.com"
 }
 
 variable "server_name" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "Name of the database server. Example: playground-computing-handlegithub"
 }
 
 variable "database_username" {
-  type = string
-  nullable = false
+  type        = string
+  nullable    = false
   description = "Administrator username for the database"
 }
 
 variable "database_password" {
-  type = string
-  sensitive = true
-  nullable = false
+  type        = string
+  default     = null
+  sensitive   = true
   description = <<EOT
 "Administrator password for the database"
 
@@ -57,12 +57,20 @@ EOT
 }
 
 variable "database_name" {
-  type = string
-  nullable = false
+  type        = string
+  nullable    = false
   description = "Name for the database within the server"
 }
 
 resource "random_string" "server_name_suffix" {
-  length = 4
+  length  = 4
   special = false
+}
+
+resource "random_password" "database_password" {
+  length      = 24
+  min_special = 1
+  min_numeric = 2
+  min_lower   = 2
+  min_upper   = 2
 }

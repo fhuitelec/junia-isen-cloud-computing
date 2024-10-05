@@ -3,7 +3,7 @@ output "database" {
     server_address = module.database[0].server_address
     port = module.database[0].port
     username = var.database_username
-    password = var.database_password
+    password = random_password.database_password
     database = var.database_name
     ssl = "enabled"
   }
