@@ -1,0 +1,11 @@
+[project]
+name = "examples-api"
+version = "1.0.0"
+description = "Simple API that returns example records from a database"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "fastapi-cli>=0.0.5",
+    "psycopg2-binary>=2.9.9",
+]
