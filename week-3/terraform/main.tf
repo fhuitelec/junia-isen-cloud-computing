@@ -26,7 +26,7 @@ module "examples_api_service" {
   resource_group_name = local.resource_group
   location            = local.location
 
-  app_name            = "examples-api-5dfa"
+  app_name            = "examples-api-${var.github_handle}"
   pricing_plan        = "P0v3"
   docker_image        = "fhuitelec/examples-api:1.0.0"
   docker_registry_url = "https://ghcr.io"
