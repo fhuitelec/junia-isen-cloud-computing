@@ -4,6 +4,7 @@ This terraform stack provisions:
 
 - a PostgreSQL server instance
 - an HTTP API on App service
+- a blob storage
 
 ## Variables
 
@@ -57,7 +58,7 @@ Let's read [Terraform documentation about modules](https://developer.hashicorp.c
 | ------------------------------------- | ----------------------------------------------- |
 | [app_service](./modules/app_service/) | Provision a container-based web-app             |
 | [database](./modules/database/)       | Provision a PostgreSQL flexible server database |
-| [database](./modules/storage/)        | Provision a blob storage to store files         |
+| [storage](./modules/storage/)         | Provision a blob storage to store files         |
 
 Each module has this file structure:
 
