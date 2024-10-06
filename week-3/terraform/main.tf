@@ -29,7 +29,7 @@ module "examples_api_service" {
 
   app_name            = local.app_name
   pricing_plan        = "P0v3"
-  docker_image        = "fhuitelec/examples-api:2.0.0"
+  docker_image        = "fhuitelec/examples-api:2.1.0"
   docker_registry_url = "https://ghcr.io"
 
   app_settings = {
@@ -38,6 +38,8 @@ module "examples_api_service" {
     DATABASE_NAME     = local.database.name
     DATABASE_USER     = local.database.username
     DATABASE_PASSWORD = local.database.password
+
+    STORAGE_ACCOUNT_URL = local.storage_url
 
     NEW_RELIC_LICENSE_KEY = var.new_relic_licence_key
     NEW_RELIC_APP_NAME    = local.app_name
@@ -80,4 +82,8 @@ module "api_storage" {
 
   service_principal_id = var.enable_storage_read_for_api ? module.examples_api_service[0].principal_id : null
   user_principal_id    = var.enable_storage_read_for_user ? data.azuread_user.user.object_id : null
+}
+
+locals {
+  storage_url = module.api_storage[0].url
 }

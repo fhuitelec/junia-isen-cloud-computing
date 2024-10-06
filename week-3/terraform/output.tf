@@ -13,7 +13,14 @@ output "database" {
 
 output "api" {
   value = length(module.examples_api_service) == 0 ? null : {
-    url     = module.examples_api_service[0].url
+    url = module.examples_api_service[0].url
   }
   description = "URL to access the HTTP API"
+}
+
+output "storage" {
+  value = length(module.api_storage) == 0 ? null : {
+    url = local.storage_url
+  }
+  description = "URL to access the storage account"
 }

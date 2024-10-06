@@ -32,6 +32,7 @@ This terraform stack provisions:
 | ---------- | --------------------------------------- |
 | `database` | The connection details for the database |
 | `api`      | The URL to access the API               |
+| `storage`  | The URL to access the storage account   |
 
 ## File structure
 
@@ -44,7 +45,8 @@ terraform/
 ├── terraform.tfvars -> A file containing user-defined variables to avoid manually entering them
 └── modules
     ├── app_service  -> A module to provision an app service
-    └── database     -> A module to provision a database instance
+    ├── database     -> A module to provision a database instance
+    └── storage      -> A module to provision  a blob storage
 ```
 
 ### Modules
@@ -55,6 +57,7 @@ Let's read [Terraform documentation about modules](https://developer.hashicorp.c
 | ------------------------------------- | ----------------------------------------------- |
 | [app_service](./modules/app_service/) | Provision a container-based web-app             |
 | [database](./modules/database/)       | Provision a PostgreSQL flexible server database |
+| [database](./modules/storage/)        | Provision a blob storage to store files         |
 
 Each module has this file structure:
 

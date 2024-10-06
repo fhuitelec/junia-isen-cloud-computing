@@ -20,12 +20,14 @@ uv sync
 ## Run
 
 ```shell
-# Export environment variables to connect to the PostgreSQL database
+# Export environment variables to connect to the PostgreSQL database...
 export DATABASE_HOST=
 export DATABASE_PORT=
 export DATABASE_NAME=
 export DATABASE_USER=
 export DATABASE_PASSWORD='' # Use single quotes to avoid shell interpolation with characters like $ or #
+# ...and the storage account
+export STORAGE_ACCOUNT_URL=
 
 # Run the application
 uv run fastapi dev main.py
