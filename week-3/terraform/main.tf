@@ -33,11 +33,11 @@ module "examples_api_service" {
   docker_registry_url = "https://ghcr.io"
 
   app_settings = {
-    DATABASE_HOST         = local.database_connection.host
-    DATABASE_PORT         = local.database_connection.port
-    DATABASE_NAME         = local.database.name
-    DATABASE_USER         = local.database.username
-    DATABASE_PASSWORD     = local.database.password
+    DATABASE_HOST     = local.database_connection.host
+    DATABASE_PORT     = local.database_connection.port
+    DATABASE_NAME     = local.database.name
+    DATABASE_USER     = local.database.username
+    DATABASE_PASSWORD = local.database.password
 
     NEW_RELIC_LICENSE_KEY = var.new_relic_licence_key
     NEW_RELIC_APP_NAME    = local.app_name
@@ -69,31 +69,14 @@ locals {
   }
 }
 
+module "api_storage" {
+  source = "./modules/storage"
 
-#### --- ####
+  resource_group_name  = local.resource_group
+  location             = local.location
+  storage_account_name = local.storage.name
+  container_name       = "api"
 
-resource "azurerm_storage_account" "storage" {
-  name                     = local.storage.name
-  resource_group_name      = local.resource_group
-  location                 = local.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-resource "azurerm_storage_container" "api" {
-  name                  = "api"
-  storage_account_name  = azurerm_storage_account.storage.name
-  container_access_type = "private"
-}
-
-resource "azurerm_role_assignment" "example" {
-  scope                = resource.azurerm_storage_container.api.resource_manager_id
-  role_definition_name = "Storage Blob Data Reader"
-  principal_id         = module.examples_api_service[0].principal_id
-}
-
-resource "azurerm_role_assignment" "user_binding" {
-  scope                = resource.azurerm_storage_container.api.resource_manager_id
-  role_definition_name = "Storage Blob Data Reader"
-  principal_id         = data.azuread_user.user.object_id
+  service_principal_id = var.enable_storage_read_for_api ? module.examples_api_service[0].principal_id : null
+  user_principal_id    = var.enable_storage_read_for_user ? data.azuread_user.user.object_id : null
 }

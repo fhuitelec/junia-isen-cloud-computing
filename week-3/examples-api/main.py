@@ -45,6 +45,7 @@ def get_environment_variable(key, default=None):
 
     return value
 
+
 @app.get("/quotes")
 def read_quotes():
     try:
