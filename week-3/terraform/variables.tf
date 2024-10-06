@@ -28,6 +28,12 @@ variable "enable_api" {
   description = "Whether to deploy the HTTP API or not"
 }
 
+variable "enable_storage" {
+  type        = bool
+  default     = false
+  description = "Whether to deploy the blob storage"
+}
+
 variable "enable_storage_read_for_user" {
   type        = bool
   default     = false

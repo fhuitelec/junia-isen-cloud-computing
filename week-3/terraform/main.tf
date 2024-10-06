@@ -71,6 +71,7 @@ locals {
 
 module "api_storage" {
   source = "./modules/storage"
+  count  = var.enable_storage ? 1 : 0
 
   resource_group_name  = local.resource_group
   location             = local.location

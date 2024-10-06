@@ -7,20 +7,24 @@ This terraform stack provisions:
 
 ## Variables
 
-| Variable                | Default                                 | Description                                                       |
-| ----------------------- | --------------------------------------- | ----------------------------------------------------------------- |
-| `location`              | `francecentral`                         | Location of the resources                                         |
-| `resource_group_name`   | `week-3`                                | Name of the resource group in which all resource are grouped      |
-| `enable_database`       | `false`                                 | Whether to deploy the PostgreSQL database or not                  |
-| `enable_api`            | `false`                                 | Whether to deploy the HTTP API or not                             |
-| `github_handle`         |                                         | Your GitHub username                                              |
-| `subscription_id`       |                                         | Your Azure subscription ID                                        |
-| `email_address`         |                                         | Your JUNIA email address. Example: firstname.lastname@*.junia.com |
-| `database_server_name`  | `playground-computing-${github_handle}` | Name of the database server                                       |
-| `database_name`         | `${github_handle}`                      | Name for the database within the server                           |
-| `database_username`     | `${github_handle}`                      | Administrator username for the database                           |
-| `database_password`     | Generated password                      | Administrator password for the database                           |
-| `new_relic_licence_key` |                                         | Used by the app service container to publish logs & metrics.      |
+| Variable                       | Default                                 | Description                                                                |
+| ------------------------------ | --------------------------------------- | -------------------------------------------------------------------------- |
+| `location`                     | `francecentral`                         | Location of the resources                                                  |
+| `resource_group_name`          | `week-3`                                | Name of the resource group in which all resource are grouped               |
+| `enable_database`              | `false`                                 | Whether to deploy the PostgreSQL database or not                           |
+| `enable_api`                   | `false`                                 | Whether to deploy the HTTP API or not                                      |
+| `enable_storage`               | `false`                                 | Whether to deploy the blob storage                                         |
+| `enable_storage_read_for_user` | `false`                                 | Whether to enable IAM service blob storage reader role for the user        |
+| `enable_storage_read_for_api`  | `false`                                 | Whether to enable IAM blob storage reader role binding for the API service |
+| `github_handle`                |                                         | Your GitHub username                                                       |
+| `subscription_id`              |                                         | Your Azure subscription ID                                                 |
+| `email_address`                |                                         | Your JUNIA email address. Example: firstname.lastname@*.junia.com          |
+| `database_server_name`         | `playground-computing-${github_handle}` | Name of the database server                                                |
+| `database_name`                | `${github_handle}`                      | Name for the database within the server                                    |
+| `database_username`            | `${github_handle}`                      | Administrator username for the database                                    |
+| `database_password`            | Generated password                      | Administrator password for the database                                    |
+| `new_relic_licence_key`        |                                         | Used by the app service container to publish logs & metrics                |
+| `storage_name`                 | `${github_handle}`                      | Name of the storage account                                                |
 
 ## Output
 
