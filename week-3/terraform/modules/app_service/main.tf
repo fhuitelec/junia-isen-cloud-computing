@@ -13,6 +13,10 @@ resource "azurerm_linux_web_app" "app_service" {
   service_plan_id     = azurerm_service_plan.app_service.id
   app_settings        = var.app_settings
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   site_config {
     always_on = var.pricing_plan != "F1"
 
