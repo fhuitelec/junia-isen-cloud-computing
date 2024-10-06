@@ -29,7 +29,7 @@ module "examples_api_service" {
 
   app_name            = local.app_name
   pricing_plan        = "P0v3"
-  docker_image        = "fhuitelec/examples-api:1.3.0"
+  docker_image        = "fhuitelec/examples-api:2.0.0"
   docker_registry_url = "https://ghcr.io"
 
   app_settings = {

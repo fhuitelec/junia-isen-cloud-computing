@@ -1,5 +1,10 @@
+import json
 import os
 import psycopg2
+
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+from azure.core.exceptions import HttpResponseError
 
 from fastapi import FastAPI, HTTPException
 
@@ -39,3 +44,17 @@ def get_environment_variable(key, default=None):
         raise RuntimeError(f"{key} does not exist")
 
     return value
+
+@app.get("/quotes")
+def read_quotes():
+    try:
+        account_url = "https://fhuitelec.blob.core.windows.net"
+        default_credential = DefaultAzureCredential(process_timeout=2)
+        blob_service_client = BlobServiceClient(account_url, credential=default_credential)
+
+        container_client = blob_service_client.get_container_client(container="api")
+        quotes = json.loads(container_client.download_blob("quotes.json").readall())
+    except HttpResponseError as error:
+        raise HTTPException(status_code=500, detail=str(error))
+
+    return {"quotes": quotes}
