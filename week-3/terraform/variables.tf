@@ -127,6 +127,18 @@ EOT
 }
 
 
+###########
+# Storage #
+###########
+
+
+variable "storage_name" {
+  type        = string
+  default     = null
+  description = "Name of the storage account"
+}
+
+
 ##########
 # Locals #
 ##########
@@ -138,5 +150,9 @@ locals {
     name        = var.database_name != null ? var.database_name : var.github_handle
     username    = var.database_username != null ? var.database_username : var.github_handle
     password    = var.database_password != null ? var.database_password : random_password.database_password.result
+  }
+
+  storage = {
+    name = var.storage_name != null ? var.storage_name : var.github_handle
   }
 }

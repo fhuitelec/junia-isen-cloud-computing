@@ -68,3 +68,32 @@ locals {
     port = try(module.database[0].port, null)
   }
 }
+
+
+#### --- ####
+
+resource "azurerm_storage_account" "storage" {
+  name                     = local.storage.name
+  resource_group_name      = local.resource_group
+  location                 = local.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_storage_container" "api" {
+  name                  = "api"
+  storage_account_name  = azurerm_storage_account.storage.name
+  container_access_type = "private"
+}
+
+resource "azurerm_role_assignment" "example" {
+  scope                = resource.azurerm_storage_container.api.resource_manager_id
+  role_definition_name = "Storage Blob Data Reader"
+  principal_id         = module.examples_api_service[0].principal_id
+}
+
+resource "azurerm_role_assignment" "user_binding" {
+  scope                = resource.azurerm_storage_container.api.resource_manager_id
+  role_definition_name = "Storage Blob Data Reader"
+  principal_id         = data.azuread_user.user.object_id
+}
