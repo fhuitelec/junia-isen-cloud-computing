@@ -42,7 +42,11 @@ On the VSCode sidebar (on the left usually), click the database icon at the bott
 - use the `database` Terraform output to fill in the fields
 - don't forget to enable SSL
 
+### Run the SQL script
+
 Once connected, in the prompt file, run the content of the file [resources/database/script.sql](../resources/database/script.sql).
+
+Hint: when SQLTools connection is established, you will have a `.session.sql` file opened: this is your SQL prompt where you can run your script by clicking on **Run on active connection**.
 
 ## Access your own HTTP API
 
