@@ -55,7 +55,7 @@ variable "enable_storage_read_for_api" {
 variable "github_handle" {
   type        = string
   nullable    = false
-  description = "Your GitHub username"
+  description = "Your GitHub username (not your email, your @username)"
 }
 
 variable "subscription_id" {
