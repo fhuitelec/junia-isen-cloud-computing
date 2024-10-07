@@ -2,6 +2,8 @@ data "azurerm_subscription" "current" {
 }
 
 data "azuread_user" "user" {
+  count = var.enable_entra_id ? 1 : 0
+
   user_principal_name = var.email_address
 }
 
@@ -53,10 +55,10 @@ module "database" {
   resource_group_name = local.resource_group
   location            = local.location
 
-  entra_administrator_tenant_id      = data.azurerm_subscription.current.tenant_id
-  entra_administrator_object_id      = data.azuread_user.user.object_id
-  entra_administrator_principal_type = "User"
-  entra_administrator_principal_name = data.azuread_user.user.user_principal_name
+  entra_administrator_tenant_id      = var.enable_entra_id ? data.azurerm_subscription.current.tenant_id : null
+  entra_administrator_object_id      = var.enable_entra_id ? data.azuread_user.user[0].object_id : null
+  entra_administrator_principal_type = var.enable_entra_id ? "User" : null
+  entra_administrator_principal_name = var.enable_entra_id ? data.azuread_user.user[0].user_principal_name : null
 
   server_name                     = local.database.server_name
   database_administrator_login    = local.database.username
@@ -81,7 +83,7 @@ module "api_storage" {
   container_name       = "api"
 
   service_principal_id = var.enable_storage_read_for_api ? module.examples_api_service[0].principal_id : null
-  user_principal_id    = var.enable_storage_read_for_user ? data.azuread_user.user.object_id : null
+  user_principal_id    = var.enable_storage_read_for_user && var.enable_entra_id ? data.azuread_user.user[0].object_id : null
 }
 
 locals {

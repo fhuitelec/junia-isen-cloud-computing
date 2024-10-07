@@ -17,6 +17,7 @@ This terraform stack provisions:
 | `enable_storage`               | `false`                                 | Whether to deploy the blob storage                                         |
 | `enable_storage_read_for_user` | `false`                                 | Whether to enable IAM service blob storage reader role for the user        |
 | `enable_storage_read_for_api`  | `false`                                 | Whether to enable IAM blob storage reader role binding for the API service |
+| `enable_entra_id`              | `true`                                  | Whether to enable Entra ID database administration                         |
 | `github_handle`                |                                         | Your GitHub username                                                       |
 | `subscription_id`              |                                         | Your Azure subscription ID                                                 |
 | `email_address`                |                                         | Your JUNIA email address. Example: firstname.lastname@*.junia.com          |

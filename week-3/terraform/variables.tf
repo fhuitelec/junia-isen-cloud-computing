@@ -47,6 +47,13 @@ variable "enable_storage_read_for_api" {
 }
 
 
+variable "enable_entra_id" {
+  type        = bool
+  default     = true
+  description = "Whether to enable Entra ID database administration"
+}
+
+
 ############
 # Identity #
 ############

@@ -15,13 +15,15 @@ resource "azurerm_postgresql_flexible_server" "playground_computing" {
   zone                          = "1"
 
   authentication {
-    active_directory_auth_enabled = true
+    active_directory_auth_enabled = var.entra_administrator_tenant_id != null
     password_auth_enabled         = true
     tenant_id                     = var.entra_administrator_tenant_id
   }
 }
 
 resource "azurerm_postgresql_flexible_server_active_directory_administrator" "administrator" {
+  count               = var.entra_administrator_tenant_id != null ? 1 : 0
+
   tenant_id           = var.entra_administrator_tenant_id
   resource_group_name = var.resource_group_name
   server_name         = azurerm_postgresql_flexible_server.playground_computing.name
