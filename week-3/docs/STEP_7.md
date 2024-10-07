@@ -19,3 +19,12 @@ You are facing the same issue as you did previously but this time, it's not you 
 Like last time, wait 2 to 3 minutes.
 
 And try to access your API on App service again, you should see the quotes.
+
+## What to do next?
+
+- read all the terraform code and the modules
+- read about the modules:
+  - [syntax](https://developer.hashicorp.com/terraform/language/modules/syntax)
+  - [create a module](https://developer.hashicorp.com/terraform/language/modules/develop)
+- read about [resources](https://developer.hashicorp.com/terraform/language/resources) & [data sources](https://developer.hashicorp.com/terraform/language/data-sources)
+- you are invited to go to the [Azure Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) and check out the resources used in the code
