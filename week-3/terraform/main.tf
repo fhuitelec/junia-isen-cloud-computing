@@ -85,5 +85,5 @@ module "api_storage" {
 }
 
 locals {
-  storage_url = module.api_storage[0].url
+  storage_url = try(module.api_storage[0].url, null)
 }
