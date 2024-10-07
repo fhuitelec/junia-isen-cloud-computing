@@ -4,6 +4,10 @@ In [week 2](../..//week-2/), we used App Service's log stream, the poor man's lo
 
 Let's use a proper observability solution: New relic. There are a few solid alternative like Datadog or Honeycomb but New relic has a nice free tier.
 
+> [!warning]
+> What follows will not work because of unforeseen New relic user & API keys limitations.
+> Skip this and go to [step 4](./STEP_4.md).
+
 ## Log into New relic
 
 - go to [login.newrelic.com](https://login.newrelic.com/login)
