@@ -12,6 +12,17 @@ Now that you are familiar, you are going to deploy real things.
 - run `terraform apply`
 - wait 5 to 10 minutes for Azure to provision all the cloud resources
 
+## Issues with server & database names
+
+Terraform might fail telling you, you have incorrect character in the database name & server name.
+
+To overcome this, add the following variables in `terraform.tfvars` with your handle GitHub or anything else without the incorrect characters:
+
+- `database_server_name`
+- `database_name`
+- `database_username`
+- `storage_name`
+
 ## Discover your brand new resources
 
 Go to the [Azure portal](https://portal.azure.com/#browse/all) and check your resources.
