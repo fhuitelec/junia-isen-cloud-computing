@@ -16,6 +16,7 @@ You should see New relic's dashboard.
 
 - find in the [README.md](../terraform/README.md), the licence key variable
 - find out the value of the licence key from the [variables.tf](../terraform/variables.tf) source code
+  - hint: the key is located [here](https://send.bitwarden.com/#bX2ytcWjUUSvJrIAAXayPA/RVbs3obbFkjeybNQuzrBCw)
 - set the variable in your `terraform.tfvars` file
 - run `terraform apply`
 
