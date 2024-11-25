@@ -19,4 +19,9 @@ docker ps # Get the container ID
 docker kill -s SIGINT $CONTAINER_ID
 # Detach
 docker run -d jpetazzo/clock
+
+# Kill & remove containers
+docker rm -f $(docker ps -aq)
+# Gracefully stop
+docker stop $CONTAINER_ID
 ```
