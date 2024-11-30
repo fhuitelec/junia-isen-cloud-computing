@@ -1,0 +1,29 @@
+services:
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
+    volumes:
+      - ../wordsmith/db/words.sql:/docker-entrypoint-initdb.d/words.sql
+    networks:
+      database:
+        aliases: [ db ]
+
+  frontend:
+    image: wordsmith/web:slim
+    volumes:
+      - ../wordsmith/web/static:/app/static
+    ports: [ 80:80 ]
+    networks: [ backend ]
+
+  backend:
+    image: wordsmith/words:classic
+    networks:
+      database: ~
+      backend:
+        aliases: [ words ]
+
+networks:
+  database: ~
+  backend: ~
