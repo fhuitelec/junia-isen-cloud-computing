@@ -1,0 +1,3 @@
+[submodule "week-5/exercises/wordsmith"]
+	path = week-5/exercises/wordsmith
+	url = https://github.com/jpetazzo/wordsmith.git
